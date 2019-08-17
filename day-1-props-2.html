@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>First React App</title>
+	<script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+	<script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+	
+</head>
+<body>
+
+	<div id="app"></div>
+
+	<script>
+		const USER_DATA = {
+		  name: 'Tyler McGinnis 2',
+		  img: 'https://avatars0.githubusercontent.com/u/2933430?v=3&s=460',
+		  username: 'tylermcginnis'
+		}
+
+		function ImgComponent(props){
+			return React.createElement(
+				'img', {
+				    className: 'logo',
+				    src: props.img
+				}
+			)			
+		}
+
+		function NameComponent(props){
+			return React.createElement(
+				'h1',
+				null,
+				props.name,
+			)			
+		}
+
+		function UsernameComponent(props){
+			return React.createElement(
+				'h3',
+				null,
+				props.username,
+			)			
+		}
+
+		const wrapperElement = React.createElement(
+			'div',
+			null,
+			React.createElement(ImgComponent,{img: USER_DATA.img}),
+			React.createElement(NameComponent,{name: USER_DATA.name}),
+			React.createElement(UsernameComponent,{username:USER_DATA.username})
+		)		
+
+		ReactDOM.render(
+			wrapperElement,
+			document.getElementById('app')
+		)
+	</script>
+
+</body>
+</html>
